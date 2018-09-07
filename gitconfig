@@ -1,0 +1,42 @@
+[user]
+	name = Dave Lee
+	email = davelee.com@gmail.com
+[core]
+	excludesfile = ~/.gitignore
+	attributesFile = ~/.gitattributes
+[alias]
+	c = commit
+	b = branch
+	p = cherry-pick
+	d = diff
+	l = log --oneline --decorate --graph
+	in = diff --staged
+	ch = checkout
+	st = status
+	ff = pull --ff-only --no-stat
+	eeny = add -p
+	start = checkout -b
+	smuggle = commit --amend -C HEAD
+	unstage = reset HEAD
+	fetch-master = config remote.origin.fetch '+refs/heads/master:refs/remotes/origin/master'
+	fetch-all = config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+[rebase]
+	autoStash = true
+[status]
+	showStash = true
+[push]
+	default = current
+[help]
+	autoCorrect = 20
+[fetch]
+	prune = true
+[blame]
+	date = short
+[diff]
+	algorithm = histogram
+	indentHeuristic = true
+[diff "python"]
+	xfuncname = "^ *((class|def) .*)$"
+[diff "swift"]
+	xfuncname = "^ *((\\w+ +)?(class|struct|enum|protocol|extension|func|(de)?init)\b.*)$"
+

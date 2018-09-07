@@ -1,0 +1,5 @@
+*.bzl		diff=python
+BUILD*		diff=python
+WORKSPACE	diff=python
+*.py		diff=python
+*.swift		diff=swift
