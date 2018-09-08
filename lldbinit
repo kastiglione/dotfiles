@@ -1,47 +1,63 @@
+# One word aliases.
 command alias alias command alias
 alias import command script import
 alias shell platform shell
 alias history command history
 alias disable breakpoint disable
 
+# Breakpoint helpers.
 alias condition breakpoint modify --condition %1
 alias ignore breakpoint modify --ignore-count %1
 alias autocontinue breakpoint modify --auto-continue true
 
+# List registers, with calling convention.
 alias args register read arg1 arg2 arg3 arg4 arg5 arg6
 
+# Like `p` and `po`, but for variables not full expressions.
 alias v frame variable
 alias vo frame variable -O --
 
+# Globally set expression language.
 alias lang-swift settings set target.language swift
 alias lang-objc settings set target.language objc
 alias lang-reset settings clear target.language
 
+# Use `f` for both `finish` and `frame select`.
 command regex f
 s/^$/finish/
 s/(\d+)/frame select %1/
 
+# Convenience `breakpoint command add` helper. See gdb's `commands`.
 command regex commands
 s/^$/breakpoint command add/
 s/^(-.+)/breakpoint command add %1/
 s/(.+) (\d+) *$/breakpoint command add -s python -o '%1' %2/
 s/(.+)/breakpoint command add -s python -o "%1"/
 
+# Convenience `help` command that works for Python API too.
 command regex h
 s/^(lldb(?:\..+)?)/script help(%1)/
 s/^(SB.+)/script help(lldb.%1)/
 s/(.*)/help %1/
 
+# Mnemonic friendly symbol lookup.
+#   lookup 0xabcdef00
+#   lookup /pattern/
+#   lookup exact_name
 command regex lookup
 s/(0x[[:xdigit:]]+)/image lookup -a %1/
 s/\x2f(.+)\x2f?$/image lookup -r -n %1/
 s/(.+)/image lookup -n %1/
 
+# Reload python modules, for lldb command development.
 command regex reload 's/(.+)/script reload(%1)/'
 
 settings set stop-disassembly-count 8
 
+# https://github.com/facebook/chisel
 import /usr/local/opt/chisel/libexec/fblldb.py
+# https://github.com/kastiglione/lldb-helpers
 import ~/src/lldb-helpers/criteria.py
 
+# Extra config
 command source ~/.lldbinit-local
