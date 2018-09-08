@@ -1,0 +1,47 @@
+command alias alias command alias
+alias import command script import
+alias shell platform shell
+alias history command history
+alias disable breakpoint disable
+
+alias condition breakpoint modify --condition %1
+alias ignore breakpoint modify --ignore-count %1
+alias autocontinue breakpoint modify --auto-continue true
+
+alias args register read arg1 arg2 arg3 arg4 arg5 arg6
+
+alias v frame variable
+alias vo frame variable -O --
+
+alias lang-swift settings set target.language swift
+alias lang-objc settings set target.language objc
+alias lang-reset settings clear target.language
+
+command regex f
+s/^$/finish/
+s/(\d+)/frame select %1/
+
+command regex commands
+s/^$/breakpoint command add/
+s/^(-.+)/breakpoint command add %1/
+s/(.+) (\d+) *$/breakpoint command add -s python -o '%1' %2/
+s/(.+)/breakpoint command add -s python -o "%1"/
+
+command regex h
+s/^(lldb(?:\..+)?)/script help(%1)/
+s/^(SB.+)/script help(lldb.%1)/
+s/(.*)/help %1/
+
+command regex lookup
+s/(0x[[:xdigit:]]+)/image lookup -a %1/
+s/\x2f(.+)\x2f?$/image lookup -r -n %1/
+s/(.+)/image lookup -n %1/
+
+command regex reload 's/(.+)/script reload(%1)/'
+
+settings set stop-disassembly-count 8
+
+import /usr/local/opt/chisel/libexec/fblldb.py
+import ~/src/lldb-helpers/criteria.py
+
+command source ~/.lldbinit-local
