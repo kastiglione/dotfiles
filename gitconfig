@@ -38,5 +38,5 @@
 [diff "python"]
 	xfuncname = "^ *((class|def) .*)$"
 [diff "swift"]
-	xfuncname = "^ *((\\w+ +)?(class|struct|enum|protocol|extension|func|(de)?init)\\b.*)$"
+	xfuncname = "^ *((\\w+ +)*(class|struct|enum|protocol|extension|func|(de)?init)\\b.*)$"
 
