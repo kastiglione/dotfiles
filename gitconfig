@@ -18,8 +18,8 @@
 	start = checkout -b
 	smuggle = commit --amend -C HEAD
 	unstage = reset HEAD
-	fetch-master = config remote.origin.fetch '+refs/heads/master:refs/remotes/origin/master'
-	fetch-all = config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+	set-fetch-master = config remote.origin.fetch '+refs/heads/master:refs/remotes/origin/master'
+	set-fetch-all = config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 [rebase]
 	autoStash = true
 [status]
