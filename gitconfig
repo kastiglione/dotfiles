@@ -35,8 +35,6 @@
 [diff]
 	algorithm = histogram
 	indentHeuristic = true
-[diff "python"]
-	xfuncname = "^ *((class|def) .*)$"
 [diff "swift"]
 	xfuncname = "^ *((\\w+ +)*(((class|struct|enum|protocol|extension|func|(de)?init)\\b.*)|((var|let)\\b.*\\{)))$"
 
