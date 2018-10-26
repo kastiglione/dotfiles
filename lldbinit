@@ -24,6 +24,11 @@ alias lang-swift settings set target.language swift
 alias lang-objc settings set target.language objc
 alias lang-reset settings clear target.language
 
+command regex let
+s/(.+): (.+) = (0x[[:xdigit:]]{10,})/call let $%1 = unsafeBitCast(%3, to: %2.self)/
+s/(.+) = (0x[[:xdigit:]]{10,})/call let $%1 = unsafeBitCast(%2, to: AnyObject.self)/
+s/(.+) = (.+)/call let $%1 = %2/
+
 command regex po
 s/(.*0x[[:xdigit:]]{10,}.*)/expression -l objc -O -- %1/
 s/(.*)/expression -O -- %1/
