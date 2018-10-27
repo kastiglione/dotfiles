@@ -20,9 +20,7 @@ alias v frame variable
 alias vo frame variable -O --
 
 # Globally set expression language.
-alias lang-swift settings set target.language swift
-alias lang-objc settings set target.language objc
-alias lang-reset settings clear target.language
+alias swift settings set target.language swift
 
 command regex let
 s/(.+): (.+) = (0x[[:xdigit:]]{10,})/call let $%1 = unsafeBitCast(%3, to: %2.self)/
