@@ -38,8 +38,8 @@ s/(\d+)/frame select %1/
 
 # Convenience `breakpoint command add` helper. See gdb's `commands`.
 command regex commands
-s/^(-.+)/breakpoint command add %1/
-s/(.+) (\d+) *$/breakpoint command add -s python -o '%1' %2/
+s/(-.+)/breakpoint command add %1/
+s/(.+) (\d+)$/breakpoint command add -s python -o '%1' %2/
 s/(.+)/breakpoint command add -s python -o "%1"/
 
 # Xcode calls breakpoint commands "actions"
