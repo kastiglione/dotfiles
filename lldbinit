@@ -8,6 +8,7 @@ alias disable breakpoint disable
 # Breakpoint helpers.
 alias condition breakpoint modify --condition %1
 alias ignore breakpoint modify --ignore-count %1
+alias mainthread breakpoint modify --thread-index 1
 command regex autocontinue
 s/^$/breakpoint modify --auto-continue true/
 s/.*/breakpoint modify --auto-continue %1/
