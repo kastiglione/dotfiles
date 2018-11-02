@@ -23,6 +23,7 @@ alias vo frame variable -O --
 # Globally set expression language.
 alias swift settings set target.language swift
 
+# Use `weak var` to prevent permenent strong references (leaks, etc).
 command regex let
 s/(.+): (.+) = (0x[[:xdigit:]]{10,})/call weak var $%1 = unsafeBitCast(%3, to: %2.self)/
 s/(.+) = (0x[[:xdigit:]]{10,})/call weak var $%1 = unsafeBitCast(%2, to: AnyObject.self)/
