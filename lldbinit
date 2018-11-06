@@ -18,7 +18,7 @@ alias args register read arg1 arg2 arg3 arg4 arg5 arg6
 
 # Like `p` and `po`, but for variables not full expressions.
 alias v frame variable
-alias vo frame variable -O --
+alias vo frame variable -O
 
 # Globally set expression language.
 alias swift settings set target.language swift
