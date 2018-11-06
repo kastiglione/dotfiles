@@ -64,7 +64,7 @@ s/(.+)/image lookup -n %1/
 command regex stop-hook
 s/^$/target stop-hook list/
 s/(-.+)/target stop-hook add %1/
-s/(.+)/target stop-hook %1/
+s/(.+)/target stop-hook add -o "%1"/
 
 # Reload python modules, for lldb command development.
 command regex reload 's/(.+)/script reload(%1)/'
