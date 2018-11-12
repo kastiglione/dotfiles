@@ -17,8 +17,13 @@ s/(.+)/breakpoint modify --auto-continue %1/
 alias args register read arg1 arg2 arg3 arg4 arg5 arg6
 
 # Like `p` and `po`, but for variables not full expressions.
-alias v frame variable
+alias v frame variable --show-types --depth 1
 alias vo frame variable -O
+
+command regex e
+s/(-.+)/expression %1/
+s/(.+)/expression --show-types --depth 1 -- %1/
+s/^$/expression/
 
 # Globally set expression language.
 alias swift settings set target.language swift
