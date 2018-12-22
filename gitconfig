@@ -9,11 +9,11 @@
 	b = branch
 	p = cherry-pick
 	d = diff
-	l = log --oneline --decorate --graph
+	l = log --oneline --decorate --graph origin/master..
 	in = diff --staged
 	ch = checkout
 	st = status
-	ff = pull --ff-only --no-stat
+	ff = pull -r --no-stat
 	eeny = add -p
 	start = checkout -b
 	smuggle = commit --amend -C HEAD
