@@ -14,6 +14,9 @@ xcscheme:*.xcscheme
 plist:*.plist
 
 --type-add
+td:*.td
+
+--type-add
 proto:*.proto
 
 --type-add
