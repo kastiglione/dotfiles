@@ -1,9 +1,7 @@
 --smart-case
 
 --type-add
-xib:*.xib
---type-add
-storyboard:*.storyboard
+xib:*.{xib,storyboard}
 
 --type-add
 xcspec:*.xcspec
