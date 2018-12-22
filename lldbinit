@@ -14,6 +14,7 @@ s/(\d+(\.(\*|\d+))?)/breakpoint disable %1/
 s/^$/script lldb.target.FindBreakpointByID(lldb.thread.GetStopReasonDataAtIndex(0)).FindLocationByID(lldb.thread.GetStopReasonDataAtIndex(1)).SetEnabled(False) if lldb.thread.stop_reason == lldb.eStopReasonBreakpoint else lldb.target.DisableAllBreakpoints()/
 
 alias d disable
+alias delete breakpoint delete
 
 # Breakpoint helpers.
 alias condition breakpoint modify --condition %1
