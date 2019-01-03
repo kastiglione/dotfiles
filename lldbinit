@@ -5,9 +5,6 @@ alias import command script import
 alias shell platform shell
 alias history command history
 
-# Use `di` for disassemble, leaving `dis` for `breakpoint disable`
-command unalias dis
-
 # `disable` supports basic `breakpoint disable` behavior, all or by number.
 # `disable` also supports disabling the currently stopped at breakpoint location.
 command regex disable
@@ -15,6 +12,9 @@ s/(\d+(\.(\*|\d+))?)/breakpoint disable %1/
 s/^$/script lldb.target.FindBreakpointByID(lldb.thread.GetStopReasonDataAtIndex(0)).FindLocationByID(lldb.thread.GetStopReasonDataAtIndex(1)).SetEnabled(False) if lldb.thread.stop_reason == lldb.eStopReasonBreakpoint else lldb.target.DisableAllBreakpoints()/
 
 alias d disable
+# Use `di` for disassemble, leaving `dis` for `breakpoint disable`
+command unalias dis
+alias dis disable
 alias delete breakpoint delete
 
 # Breakpoint helpers.
