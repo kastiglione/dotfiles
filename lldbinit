@@ -1,5 +1,6 @@
 # One word aliases.
 command alias alias command alias
+alias unalias command unalias
 alias import command script import
 alias shell platform shell
 alias history command history
