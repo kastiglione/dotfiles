@@ -25,7 +25,7 @@ command regex autocontinue
 s/^$/breakpoint modify --auto-continue true/
 s/(.+)/breakpoint modify --auto-continue %1/
 
-# List registers, with calling convention.
+# List registers, in order of calling convention.
 alias args register read arg1 arg2 arg3 arg4 arg5 arg6
 
 # Like `p` and `po`, but for variables not full expressions.
