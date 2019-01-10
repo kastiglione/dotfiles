@@ -55,13 +55,10 @@ command regex f
 s/^$/finish/
 s/(\d+)/frame select %1/
 
-# Convenience `breakpoint command add` helper. See gdb's `commands`.
-command regex commands
+# Xcode calls breakpoint commands "actions". In gdb it's `commands`.
+command regex action
 s/(-.+)/breakpoint command add %1/
 s/(.+)/breakpoint command add -s python -o "%1"/
-
-# Xcode calls breakpoint commands "actions"
-alias action commands
 
 # Convenience `help` command that works for Python API too.
 command regex h
