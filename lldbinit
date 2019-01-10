@@ -88,6 +88,15 @@ command regex reload 's/(.+)/script reload(%1)/'
 
 settings set stop-disassembly-count 8
 
+# This modifies the default by:
+# * showing stop-reason at the beginning
+# * removing module and function name
+# * removing tid and $pc
+settings set thread-stop-format "thread ${thread.index}: {stop reason = ${thread.stop-reason}}{, name = '${thread.name}'}{, queue = '${thread.queue}'}{, activity = '${thread.info.activity.name}'}{, ${thread.info.trace_messages} messages}{, return value = ${thread.return-value}}{, completed expression = ${thread.completed-expression}}\n"
+
+# This modifies the default by not including absolute and relative $pc of each frame
+settings set frame-format "${frame.index}: {${module.file.basename}`}${function.name}{ ${line.file.basename}:${line.number}}{${function.is-optimized} [opt]}\n"
+
 # https://github.com/kastiglione/lldb-helpers
 import ~/src/lldb-helpers/criteria.py
 
