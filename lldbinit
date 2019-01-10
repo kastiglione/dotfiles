@@ -62,8 +62,9 @@ s/(.+)/breakpoint command add -s python -o "%1"/
 
 # Convenience `help` command that works for Python API too.
 command regex h
-s/^(lldb(?:\..+)?)/script help(%1)/
+s/^(debugger|target|process|thread|frame)/script help(lldb.%1)/
 s/^(SB.+)/script help(lldb.%1)/
+s/^(lldb(?:\..+)?)/script help(%1)/
 s/(.*)/help %1/
 
 # Mnemonic friendly symbol lookup.
