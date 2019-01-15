@@ -66,6 +66,7 @@ s/\x2f(.+)\x2f?$/apropos %1/
 s/^(debugger|target|process|thread|frame)/script help(lldb.%1)/
 s/^(SB.+)/script help(lldb.%1)/
 s/^(lldb(?:\..+)?)/script help(%1)/
+s/\?(.+)/script import re; print "\n".join(["{}.{}".format(cls, meth) for cls in dir(lldb) if isinstance(getattr(lldb, cls), type) for meth in dir(getattr(lldb, cls)) if re.search("%1", meth)])/
 s/(.*)/help %1/
 
 # Mnemonic friendly symbol lookup.
