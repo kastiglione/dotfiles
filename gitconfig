@@ -9,7 +9,8 @@
 	b = branch
 	p = cherry-pick
 	d = diff
-	l = log --oneline --decorate --graph origin/master..
+	l = log --oneline --decorate --graph @{upstream}..
+	la = log --oneline --decorate --graph
 	in = diff --staged
 	ch = checkout
 	st = status
