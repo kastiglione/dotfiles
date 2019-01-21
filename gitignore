@@ -33,3 +33,5 @@ Temporary Items
 ## User settings
 xcuserdata/
 
+.mypy_cache/
+.vscode/
