@@ -1,28 +1,18 @@
 --smart-case
 
---type-add
-xib:*.{xib,storyboard}
+--type-add=xib:*.{xib,storyboard}
 
---type-add
-xcspec:*.xcspec
---type-add
-xcconfig:*.xcconfig
---type-add
-xcscheme:*.xcscheme
+--type-add=xcspec:*.xcspec
+--type-add=xcconfig:*.xcconfig
+--type-add=xcscheme:*.xcscheme
 
---type-add
-plist:*.plist
+--type-add=plist:*.plist
 
---type-add
-td:*.td
+--type-add=td:*.td
 
---type-add
-proto:*.proto
+--type-add=proto:*.proto
 
---type-add
-bzl:*.{bzl,BUILD}
---type-add
-bzl:BUILD*
---type-add
-bzl:WORKSPACE*
+--type-add=bzl:*.{bzl,BUILD}
+--type-add=bzl:BUILD*
+--type-add=bzl:WORKSPACE*
 
