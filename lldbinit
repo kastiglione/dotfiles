@@ -86,6 +86,8 @@ s/(.+)/target stop-hook add -o "%1"/
 # Reload python modules, for lldb command development.
 command regex reload 's/(.+)/script reload(%1)/'
 
+command regex stdin 's/(.+)/settings set target.input-path %1/'
+
 settings set stop-disassembly-count 8
 
 # This modifies the default by:
