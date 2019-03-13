@@ -15,7 +15,7 @@
 	ch = checkout
 	st = status
 	ff = pull -r --no-stat
-	bl = blame --date=human
+	bl = blame -MC --date=human
 	eeny = add -p
 	start = checkout -b
 	smuggle = commit --amend -C HEAD
@@ -34,7 +34,7 @@
 	prune = true
 [blame]
 	date = short
-	coloring = repeatedLines
+	coloring = highlightRecent
 [diff]
 	algorithm = histogram
 [diff "swift"]
