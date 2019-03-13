@@ -39,4 +39,5 @@
 	algorithm = histogram
 [diff "swift"]
 	xfuncname = "^ *((\\w+ +)*(((class|struct|enum|protocol|extension|func|(de)?init)\\b.*)|((var|let)\\b.*\\{)))$"
-
+[pull]
+	rebase = true
