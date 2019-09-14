@@ -98,13 +98,6 @@ settings set frame-format "${frame.index}: {${module.file.basename}`}${function.
 # https://github.com/kastiglione/lldb-helpers
 import ~/src/lldb-helpers/criteria.py
 
-# https://github.com/facebook/chisel
-import /usr/local/opt/chisel/libexec/fblldb.py
-# delete commands I don't use for the convenience of those I do use.
-command script delete poobjc
-command script delete pproperties
-command script delete setinput
-command script delete settext
 
 # Extra config
 command source ~/.lldbinit-local
