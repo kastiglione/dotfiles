@@ -1,5 +1,11 @@
 --smart-case
 
+--pcre2
+--auto-hybrid-regex
+
+--hidden
+--glob=!.git/
+
 --type-add=xib:*.{xib,storyboard}
 
 --type-add=xcspec:*.xcspec
