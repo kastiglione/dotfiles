@@ -97,7 +97,3 @@ settings set frame-format "${frame.index}: {${module.file.basename}`}${function.
 
 # https://github.com/kastiglione/lldb-helpers
 import ~/src/lldb-helpers/criteria.py
-
-
-# Extra config
-command source ~/.lldbinit-local
