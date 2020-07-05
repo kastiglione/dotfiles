@@ -51,6 +51,11 @@ command regex f
 s/^$/finish/
 s/(\d+)/frame select %1/
 
+# Use `t` for both `thread select` and `type lookup`.
+command regex t
+s/(\d+)/thread select %1/
+s/(.+)/type lookup %1/
+
 # Xcode calls breakpoint commands "actions". In gdb it's `commands`.
 command regex action
 s/(-.+)/breakpoint command add %1/
