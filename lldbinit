@@ -61,6 +61,10 @@ command regex action
 s/(-.+)/breakpoint command add %1/
 s/(.+)/breakpoint command add -s python -o "%1"/
 
+# To use / in command regex patterns, use the escaped form: \x2f
+# In these commands, / is a pattern search mnemonic.
+# Example: `lookup /foo` uses `image lookup -r`.
+
 # Convenience `help` command that works for Python API too.
 command regex h
 s/^(lldb\b.*)/script help(%1)/
@@ -76,7 +80,7 @@ s/(.*)/help %1/
 #   lookup exact_name
 command regex lookup
 s/(0x[[:xdigit:]]+)/image lookup -a %1/
-s/\x2f(.+)\x2f?$/image lookup -r -n %1/
+s/\x2f(.+)/image lookup -r -n %1/
 s/(.+)/image lookup -n %1/
 
 command regex stop-hook
