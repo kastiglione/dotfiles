@@ -96,11 +96,6 @@ s/(0x[[:xdigit:]]+)/image lookup -a %1/
 s/\x2f(.+)/image lookup -r -n %1/
 s/(.+)/image lookup -n %1/
 
-command regex stop-hook
-s/^$/target stop-hook list/
-s/(-.+)/target stop-hook add %1/
-s/(.+)/target stop-hook add -o "%1"/
-
 command regex v
 s/^$/frame variable -T -D0/
 s/(.+)/frame variable -T %1/
