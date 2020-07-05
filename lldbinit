@@ -11,10 +11,23 @@ command regex disable
 s/(\d+(\.(\*|\d+))?)/breakpoint disable %1/
 s/^$/script lldb.target.FindBreakpointByID(lldb.thread.GetStopReasonDataAtIndex(0)).FindLocationByID(lldb.thread.GetStopReasonDataAtIndex(1)).SetEnabled(False) if lldb.thread.stop_reason == lldb.eStopReasonBreakpoint else lldb.target.DisableAllBreakpoints()/
 
-alias d disable
-# Use `di` for disassemble, leaving `dis` for `breakpoint disable`
+# For reading, the oneliner is:
+# ```
+# if lldb.thread.stop_reason == lldb.eStopReasonBreakpoint:
+#     # At a breakpoint, the stop reason data is: [breakpoint_id, location_id]
+#     breakpoint = lldb.target.FindBreakpointByID(lldb.thread.GetStopReasonDataAtIndex(0))
+#     location = breakpoint.FindLocationByID(lldb.thread.GetStopReasonDataAtIndex(1))
+#     location.SetEnabled(False)
+# else:
+#     lldb.target.DisableAllBreakpoints()
+# ```
+
+# Use `dis` for `breakpoint disable`
+# Use builtin `di` for disassemble.
 command unalias dis
 alias dis disable
+alias d disable
+
 alias delete breakpoint delete
 
 # Breakpoint helpers.
