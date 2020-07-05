@@ -89,7 +89,7 @@ s/(.*)/help %1/
 
 # Mnemonic friendly symbol lookup.
 #   lookup 0xabcdef00
-#   lookup /pattern/
+#   lookup /pattern
 #   lookup exact_name
 command regex lookup
 s/(0x[[:xdigit:]]+)/image lookup -a %1/
